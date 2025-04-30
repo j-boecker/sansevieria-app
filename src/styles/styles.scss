@@ -1,5 +1,5 @@
 @use "@angular/material" as mat;
-@use "../_theme-colors" as theme-colors;
+@use "_theme-colors" as theme-colors;
 
 @forward "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;700&display=swap");
@@ -18,4 +18,14 @@ html {
       density: 0,
     )
   );
+  //@include theme-colors.high-contrast-overrides(light);
 }
+
+body {
+  background-color: var(--mat-sys-surface);
+}
+
+@include mat.toolbar-overrides((
+  container-background-color: var(--mat-sys-secondary-container),
+  container-text-color: var(--mat-sys-secondary),
+));
