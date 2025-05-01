@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Plant } from '../../data/models/plant-model';
-import { PlantDataService } from '../../data/plant-data.service';
+import { Plant } from '../../../data/models/plant-model';
+import { PlantDataService } from '../../../data/plant-data.service';
 
 @Component({
   selector: 'app-plant-list',
-  imports: [MatCardModule, MatButtonModule, CommonModule],
+  imports: [MatCardModule, MatButtonModule, CommonModule, RouterLink],
   templateUrl: './plant-list.component.html',
   styleUrl: './plant-list.component.scss',
 })
