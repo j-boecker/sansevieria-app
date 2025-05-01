@@ -9,4 +9,6 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "tailwindCSS.experimental.configFile": "src/styles/styles.scss",
+  "tailwindCSS.lint.invalidConfigPath": "ignore"
 }

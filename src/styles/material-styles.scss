@@ -1,0 +1,33 @@
+@use "@angular/material" as mat;
+@use "theme-colors" as theme-colors;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        primary: theme-colors.$primary-palette,
+        tertiary: theme-colors.$tertiary-palette,
+        theme-type: light,
+      ),
+      typography: (
+        plain-family: Georgia,
+        brand-family: Georgia,
+      ),
+      density: 0,
+    )
+  );
+  //@include theme-colors.high-contrast-overrides(light);
+}
+
+@include mat.toolbar-overrides(
+  (
+    container-background-color: var(--mat-sys-secondary-container),
+    container-text-color: var(--mat-sys-secondary),
+  )
+);
+
+@for $i from 0 through 24 {
+  .mat-mdc-card.mat-elevation-z#{$i} {
+    @include mat.elevation($i);
+  }
+}
