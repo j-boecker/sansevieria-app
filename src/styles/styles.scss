@@ -8,11 +8,11 @@ html {
       color: (
         primary: theme-colors.$primary-palette,
         tertiary: theme-colors.$tertiary-palette,
-        theme-type: dark,
+        theme-type: light,
       ),
       typography: (
-        plain-family: Raleway,
-        brand-family: Poppins,
+        plain-family: Georgia,
+        brand-family: Georgia,
       ),
       density: 0,
     )
@@ -23,6 +23,7 @@ html {
 body {
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 @include mat.toolbar-overrides(
