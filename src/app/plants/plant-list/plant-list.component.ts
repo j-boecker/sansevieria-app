@@ -1,23 +1,22 @@
-import { PlantDataService } from './../plant-data.service';
-import { Component } from '@angular/core';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Observable } from 'rxjs';
 import { Plant } from '../plant-model';
-import { CommonModule } from '@angular/common';
+import { PlantDataService } from './../plant-data.service';
 
 @Component({
   selector: 'app-plant-list',
   imports: [MatCardModule, MatButtonModule, CommonModule],
   templateUrl: './plant-list.component.html',
-  styleUrl: './plant-list.component.scss'
+  styleUrl: './plant-list.component.scss',
 })
-export class PlantListComponent {
-
+export class PlantListComponent implements OnInit {
   plants$ = new Observable<Plant[]>();
 
-  constructor(private plantDataService: PlantDataService) {
+  constructor(private plantDataService: PlantDataService) {}
+  ngOnInit(): void {
     this.plants$ = this.plantDataService.getPlants$();
   }
-
 }
