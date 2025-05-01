@@ -6,7 +6,7 @@ import {
 } from '@supabase/supabase-js';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Plant } from './plant-model';
+import { Plant } from './models/plant-model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,27 +14,10 @@ import { Plant } from './plant-model';
 export class PlantDataService {
   private supabase: SupabaseClient;
   _session: AuthSession | null = null;
-
-  private mockPlants: Plant[] = [
-    {
-      id: '1',
-      name: 'Rose',
-      latinName: 'Rosa',
-      imageUrl: 'https://example.com/rose.jpg',
-      description: 'A beautiful flower with thorns.',
-    },
-    {
-      id: '2',
-      name: 'Tulip',
-      latinName: 'Tulipa',
-      imageUrl: 'https://example.com/tulip.jpg',
-      description: 'A spring-blooming perennial herb.',
-    },
-  ];
   constructor() {
     this.supabase = createClient(
       environment.supabaseUrl,
-      process.env['SUPABASE_API_KEY'] || environment.supabaseKey,
+      environment.supabaseKey,
     );
   }
 

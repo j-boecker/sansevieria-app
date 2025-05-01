@@ -1,19 +1,19 @@
 import { Routes } from '@angular/router';
-import { PlantListComponent } from './plants/plant-list/plant-list.component';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './presentation/about/about.component';
+import { PlantListComponent } from './presentation/plant-list/plant-list.component';
 
 export const routes: Routes = [
-    {
-        path: 'plants',
-        component: PlantListComponent
-    },
-    {
-        path: 'about',
-        component: AboutComponent
-    },
-    {
-        path: '',
-        redirectTo: '/about',
-        pathMatch: 'full'
-    }
+  {
+    path: 'plants',
+    component: PlantListComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/about',
+    pathMatch: 'full',
+  },
 ];

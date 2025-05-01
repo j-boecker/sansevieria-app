@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Observable } from 'rxjs';
-import { Plant } from '../plant-model';
-import { PlantDataService } from './../plant-data.service';
+import { Plant } from '../../data/models/plant-model';
+import { PlantDataService } from '../../data/plant-data.service';
 
 @Component({
   selector: 'app-plant-list',
