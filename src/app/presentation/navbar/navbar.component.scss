@@ -1,3 +1,6 @@
-.app-title {
-  color: var(–mat-sys-on-primary);
+.spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  gap: 8px;
 }
