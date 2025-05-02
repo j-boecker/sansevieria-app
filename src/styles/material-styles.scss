@@ -16,7 +16,6 @@ html {
       density: 0,
     )
   );
-  //@include theme-colors.high-contrast-overrides(light);
 }
 
 @include mat.toolbar-overrides(
