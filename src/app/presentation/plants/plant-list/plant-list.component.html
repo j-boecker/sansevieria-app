@@ -15,9 +15,21 @@
       </mat-card-header>
 
       <mat-card-content>
-        <a [routerLink]="['./', plant.id]">
-          <img mat-card-image [src]="plant.imageUrl" [alt]="plant.name" />
-        </a>
+        @if (plant.imageUrl) {
+          <a [routerLink]="['./', plant.id]">
+            <img
+              class="mx-auto p-4"
+              mat-card-image
+              [src]="plant.imageUrl"
+              alt="Image of {{ plant.name }}"
+            />
+          </a>
+        } @else {
+          <div class="mt-10 mb-5 text-center text-gray-500">
+            <mat-icon>hide_source</mat-icon>
+            <p class="py-2 italic text-gray-500">Nicht mehr vorhanden</p>
+          </div>
+        }
         <p class="mt-4">
           {{ plant.discoverLocation }}, {{ plant.discoverDate | date: "yyyy" }}
         </p>

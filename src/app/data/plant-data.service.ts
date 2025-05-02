@@ -21,6 +21,7 @@ export class PlantDataService {
       this.supabase
         .from('plant')
         .select('*')
+        .order('pfennigNumber', { ascending: true })
         .then(({ data, error }) => {
           if (error) {
             console.error('Error fetching plants:', error);

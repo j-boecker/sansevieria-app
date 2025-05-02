@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Plant } from '../../../data/models/plant-model';
@@ -10,7 +11,13 @@ import { getPfennigNumber } from '../../utils/utils';
 
 @Component({
   selector: 'app-plant-list',
-  imports: [MatCardModule, MatButtonModule, CommonModule, RouterLink],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    CommonModule,
+    RouterLink,
+    MatIconModule,
+  ],
   templateUrl: './plant-list.component.html',
   styleUrl: './plant-list.component.scss',
 })
