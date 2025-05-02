@@ -8,10 +8,16 @@
         <div mat-card-avatar class="text-center font-bold">
           {{ getPfennigNumber(plant.pfennigNumber) }}
         </div>
-        <mat-card-title>{{ plant.name }}</mat-card-title>
-        <mat-card-subtitle class="italic">{{
-          plant.nameGiver
-        }}</mat-card-subtitle>
+        <mat-card-title>
+          <span>{{ plant.name }}</span>
+          <span class="italic"> {{ plant.nameGiver }} </span></mat-card-title
+        >
+        <mat-card-subtitle>
+          <span>{{ plant.secondaryName }}</span>
+          <span class="italic">
+            {{ plant.secondaryNameGiver }}
+          </span></mat-card-subtitle
+        >
       </mat-card-header>
 
       <mat-card-content>
@@ -27,7 +33,9 @@
         } @else {
           <div class="mt-10 mb-5 text-center text-gray-500">
             <mat-icon>hide_source</mat-icon>
-            <p class="py-2 italic text-gray-500">Nicht mehr vorhanden</p>
+            <p class="py-2 italic text-gray-500">
+              {{ "plants.notAvailable" | translate }}
+            </p>
           </div>
         }
         <p class="mt-4">
