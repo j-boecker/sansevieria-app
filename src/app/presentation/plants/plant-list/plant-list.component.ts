@@ -26,7 +26,7 @@ export class PlantListComponent implements OnInit {
 
   constructor(private plantDataService: PlantDataService) {}
   ngOnInit(): void {
-    this.plants$ = this.plantDataService.getPlants$();
+    this.plants$ = this.plantDataService.getPlantsWithCache$();
   }
 
   getPfennigNumber(pfennigNumber: number): string {
