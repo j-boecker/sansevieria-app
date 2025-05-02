@@ -5,17 +5,29 @@
       appearance="outlined"
     >
       <mat-card-header>
+        <div mat-card-avatar class="text-center font-bold">
+          {{ getPfennigNumber(plant.pfennigNumber) }}
+        </div>
         <mat-card-title>{{ plant.name }}</mat-card-title>
-        <mat-card-subtitle>{{ plant.latinName }}</mat-card-subtitle>
+        <mat-card-subtitle class="italic">{{
+          plant.nameGiver
+        }}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image [src]="plant.imageUrl" [alt]="plant.name" />
+
       <mat-card-content>
-        <p>
-          {{ plant.description }}
+        <a [routerLink]="['./', plant.id]">
+          <img mat-card-image [src]="plant.imageUrl" [alt]="plant.name" />
+        </a>
+        <p class="mt-4">
+          {{ plant.discoverLocation }}, {{ plant.discoverDate | date: "yyyy" }}
         </p>
       </mat-card-content>
-      <mat-card-actions>
-        <a mat-button color="primary" [routerLink]="['./', plant.id]"
+      <mat-card-actions class="h-full">
+        <a
+          class="w-full self-end"
+          mat-button
+          color="primary"
+          [routerLink]="['./', plant.id]"
           >Details</a
         >
       </mat-card-actions>

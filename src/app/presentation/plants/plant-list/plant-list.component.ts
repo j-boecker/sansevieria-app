@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Plant } from '../../../data/models/plant-model';
 import { PlantDataService } from '../../../data/plant-data.service';
+import { getPfennigNumber } from '../../utils/utils';
 
 @Component({
   selector: 'app-plant-list',
@@ -19,5 +20,9 @@ export class PlantListComponent implements OnInit {
   constructor(private plantDataService: PlantDataService) {}
   ngOnInit(): void {
     this.plants$ = this.plantDataService.getPlants$();
+  }
+
+  getPfennigNumber(pfennigNumber: number): string {
+    return getPfennigNumber(pfennigNumber);
   }
 }

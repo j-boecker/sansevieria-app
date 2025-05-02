@@ -1,13 +1,36 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Plant } from '../../../data/models/plant-model';
+import { PlantDataService } from '../../../data/plant-data.service';
+import { getPfennigNumber } from '../../utils/utils';
 
 @Component({
   selector: 'app-plant-details',
-  imports: [],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterLink,
+  ],
   templateUrl: './plant-details.component.html',
   styleUrl: './plant-details.component.scss',
 })
 export class PlantDetailsComponent {
-  @Input() set id(heroId: string) {
-    console.log('id', heroId);
+  @Input() set id(id: string) {
+    this.plant$ = this.plantDataService.getPlantById$(id);
+  }
+
+  plant$ = new Observable<Plant>();
+
+  constructor(private plantDataService: PlantDataService) {}
+
+  getPfennigNumber(pfennigNumber: number): string {
+    return getPfennigNumber(pfennigNumber);
   }
 }

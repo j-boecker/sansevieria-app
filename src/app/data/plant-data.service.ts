@@ -33,4 +33,23 @@ export class PlantDataService {
         });
     });
   }
+
+  public getPlantById$(id: string): Observable<Plant> {
+    return new Observable<Plant>((observer) => {
+      this.supabase
+        .from('plant')
+        .select('*')
+        .eq('id', id)
+        .then(({ data, error }) => {
+          if (error) {
+            console.error('Error fetching plant by ID:', error);
+            observer.error(error);
+          } else {
+            console.log('Plant fetched successfully:', data);
+            observer.next(data[0] as Plant);
+          }
+          observer.complete();
+        });
+    });
+  }
 }
