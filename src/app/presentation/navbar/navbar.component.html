@@ -1,5 +1,5 @@
-<mat-toolbar class="sticky top-0 z-10 shadow-md overflow-auto">
-  <span class="hidden sm:inline">{{ "title" | translate }}</span>
+<mat-toolbar class="sticky top-0 z-10 shadow-md">
+  <span class="hidden md:inline">{{ "title" | translate }}</span>
   <a mat-button color="accent" routerLink="/plants" routerLinkActive="active">{{
     "nav.sansevieria" | translate
   }}</a>
@@ -15,7 +15,7 @@
   <a mat-button color="accent" routerLink="/disclaimer">{{
     "nav.disclaimer" | translate
   }}</a>
-  <span class="spacer"></span>
+  <span class="spacer hidden sm:inline"></span>
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>language</mat-icon>
   </button>

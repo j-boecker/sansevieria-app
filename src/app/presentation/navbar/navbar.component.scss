@@ -4,3 +4,10 @@
 mat-toolbar {
   gap: 8px;
 }
+@media screen and (max-width: 639px) {
+  mat-toolbar {
+    height: 100px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
