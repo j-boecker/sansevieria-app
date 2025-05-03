@@ -6,7 +6,8 @@ mat-toolbar {
 }
 @media screen and (max-width: 639px) {
   mat-toolbar {
-    height: 100px;
+    height: 104px;
+    padding: 8px 0;
     flex-direction: column;
     flex-wrap: wrap;
   }

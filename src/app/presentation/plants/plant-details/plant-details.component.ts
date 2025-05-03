@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { Plant } from '../../../data/models/plant-model';
 import { PlantDataService } from '../../../data/plant-data.service';
@@ -17,6 +18,7 @@ import { getPfennigNumber } from '../../utils/utils';
     MatButtonModule,
     MatIconModule,
     RouterLink,
+    TranslateModule,
   ],
   templateUrl: './plant-details.component.html',
   styleUrl: './plant-details.component.scss',

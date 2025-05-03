@@ -12,12 +12,16 @@
         <div mat-card-avatar class="text-center font-bold">
           {{ getPfennigNumber(plant.pfennigNumber) }}
         </div>
-        <mat-card-title class="text-xl font-bold">{{
-          plant.name
-        }}</mat-card-title>
-        <mat-card-subtitle class="italic">{{
-          plant.nameGiver
-        }}</mat-card-subtitle>
+        <mat-card-title>
+          <span>{{ plant.name }}</span>
+          <span class="italic"> {{ plant.nameGiver }} </span></mat-card-title
+        >
+        <mat-card-subtitle>
+          <span>{{ plant.secondaryName }}</span>
+          <span class="italic">
+            {{ plant.secondaryNameGiver }}
+          </span></mat-card-subtitle
+        >
       </mat-card-header>
 
       <mat-card-content>
@@ -31,29 +35,21 @@
         } @else {
           <div class="mt-10 mb-5 text-center text-gray-500">
             <mat-icon>hide_source</mat-icon>
-            <p class="py-2 italic text-gray-500">Nicht mehr vorhanden</p>
+            <p class="py-2 italic text-gray-500">
+              {{ "plants.notAvailable" | translate }}
+            </p>
           </div>
         }
-        <p class="text-gray-700 dark:text-gray-100">{{ plant.description }}</p>
+        <p class="text-gray-700 dark:text-gray-100 text-center">
+          {{ plant.description }}
+        </p>
         <div class="mt-4">
-          <h3 class="text-lg font-semibold">Details</h3>
-          <div class="grid grid-cols-2 gap-4">
+          <div class="flex align-middle justify-center">
             <div>
-              <strong>Pfennig Number:</strong> {{ plant.pfennigNumber }}
-            </div>
-            <div><strong>Name Giver:</strong> {{ plant.nameGiver }}</div>
-            <div>
-              <strong>Discover Location:</strong> {{ plant.discoverLocation }}
-            </div>
-            <div>
-              <strong>Discover Date:</strong> {{ plant.discoverDate | date }}
-            </div>
-            <div>
-              <strong>Secondary Name:</strong> {{ plant.secondaryName }}
-            </div>
-            <div>
-              <strong>Secondary Name Giver:</strong>
-              {{ plant.secondaryNameGiver }}
+              <strong
+                >{{ plant.discoverLocation }},
+                {{ plant.discoverDate | date: "yyyy" }}</strong
+              >
             </div>
           </div>
         </div>

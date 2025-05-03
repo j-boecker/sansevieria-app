@@ -1,9 +1,6 @@
 <div class="flex flex-wrap gap-4 justify-center">
   @for (plant of plants$ | async; track plant.id) {
-    <mat-card
-      class="example-card p-2 m-4 w-80 mat-elevation-z4"
-      appearance="outlined"
-    >
+    <mat-card class="plant-card p-2 m-4 w-80 shadow-lg">
       <mat-card-header>
         <div mat-card-avatar class="text-center font-bold">
           {{ getPfennigNumber(plant.pfennigNumber) }}
@@ -38,7 +35,7 @@
             </p>
           </div>
         }
-        <p class="mt-4">
+        <p class="mt-4 text-center">
           {{ plant.discoverLocation }}, {{ plant.discoverDate | date: "yyyy" }}
         </p>
       </mat-card-content>
