@@ -10,3 +10,14 @@ export interface Plant {
   imageUrl: string;
   description: string;
 }
+
+export interface FileData {
+  id: string;
+  fileName: string;
+  publicUrl: string;
+  fileType: number;
+}
+
+export interface PlantDetails extends Plant {
+  filedata: FileData[];
+}

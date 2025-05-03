@@ -3,10 +3,11 @@ import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { Plant } from '../../../data/models/plant-model';
+import { FileData, PlantDetails } from '../../../data/models/plant-model';
 import { PlantDataService } from '../../../data/plant-data.service';
 import { getPfennigNumber } from '../../utils/utils';
 
@@ -28,11 +29,24 @@ export class PlantDetailsComponent {
     this.plant$ = this.plantDataService.getPlantById$(id);
   }
 
-  plant$ = new Observable<Plant>();
+  plant$ = new Observable<PlantDetails>();
 
-  constructor(private plantDataService: PlantDataService) {}
+  constructor(
+    private plantDataService: PlantDataService,
+    private readonly sanitizer: DomSanitizer,
+  ) {}
 
   getPfennigNumber(pfennigNumber: number): string {
     return getPfennigNumber(pfennigNumber);
+  }
+
+  getPdfDocuments(
+    fileData: FileData[],
+  ): { name: string; url: SafeResourceUrl }[] {
+    const pdfDocuments = fileData.filter((pf) => pf.fileType === 1);
+    return pdfDocuments.map((pf) => ({
+      name: pf.fileName,
+      url: this.sanitizer.bypassSecurityTrustResourceUrl(pf.publicUrl),
+    }));
   }
 }

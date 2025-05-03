@@ -3,7 +3,7 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { from, Observable, of, switchMap, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Plant } from './models/plant-model';
+import { Plant, PlantDetails } from './models/plant-model';
 
 interface CachedPlants {
   data: Plant[];
@@ -36,11 +36,11 @@ export class PlantDataService {
     );
   }
 
-  public getPlantById$(id: string): Observable<Plant> {
-    return new Observable<Plant>((observer) => {
+  public getPlantById$(id: string): Observable<PlantDetails> {
+    return new Observable<PlantDetails>((observer) => {
       this.supabase
         .from('plant')
-        .select('*')
+        .select('*, filedata(*)')
         .eq('id', id)
         .then(({ data, error }) => {
           if (error) {
@@ -48,7 +48,7 @@ export class PlantDataService {
             observer.error(error);
           } else {
             console.log('Plant fetched successfully:', data);
-            observer.next(data[0] as Plant);
+            observer.next(data[0] as PlantDetails);
           }
           observer.complete();
         });
