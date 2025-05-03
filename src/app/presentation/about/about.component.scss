@@ -1,0 +1,32 @@
+/* Styles for the table in the about component */
+.container {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  max-width: 64rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #cbd5e0;
+  text-align: left;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+thead th {
+  border: 1px solid #cbd5e0;
+  padding: 0.5rem 1rem;
+}
+
+tbody td {
+  border: 1px solid #cbd5e0;
+  padding: 0.5rem 1rem;
+}
+
+a {
+  color: #2b6cb0;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  padding: 8px 0;
+}
